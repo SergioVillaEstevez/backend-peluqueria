@@ -12,9 +12,11 @@ const getUsers = async (req, res)=> {
 
 const createUser= async (req, res)=> {
 
-    const {name, email, rol } = req.body
+    console.log("BODY:", req.body); // <-- esto
 
-    const user = await userService.createUser({name, email,rol});
+    const {userName, email,password,rol } = req.body
+
+    const user = await userService.createUser({userName, email, password ,rol});
 
     res.json(user);
 
